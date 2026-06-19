@@ -9,9 +9,6 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
-    <!-- ═══════════════════════════════════════════════════
-         BARRA SUPERIOR DE AÇÕES
-    ═══════════════════════════════════════════════════ -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -23,7 +20,6 @@
         android:paddingEnd="8dp"
         android:elevation="4dp">
 
-        <!-- Botão Layout -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLayout"
             style="@style/Widget.Material3.Button.TextButton.Icon"
@@ -34,18 +30,16 @@
             android:textColor="@color/on_surface"
             app:iconTint="@color/on_surface" />
 
-        <!-- Botão Tela Cheia -->
         <ImageButton
             android:id="@+id/btnFullscreen"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_fullscreen"
-            android:imageTintList="@color/on_surface"
+            app:tint="@color/on_surface"
             android:contentDescription="@string/btn_fullscreen"
             android:layout_marginStart="4dp" />
 
-        <!-- Botão Trocar Áudio -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSwitchAudio"
             style="@style/Widget.Material3.Button.TextButton.Icon"
@@ -57,27 +51,22 @@
             app:iconTint="@color/primary"
             android:layout_marginStart="4dp" />
 
-        <!-- Espaçador flexível -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Botão Configurações -->
         <ImageButton
             android:id="@+id/btnSettings"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_settings"
-            android:imageTintList="@color/on_surface"
+            app:tint="@color/on_surface"
             android:contentDescription="@string/btn_settings" />
 
     </LinearLayout>
 
-    <!-- ═══════════════════════════════════════════════════
-         ÁREA DE VÍDEO — 4 PlayerViews reorganizados pelo LayoutManager
-    ═══════════════════════════════════════════════════ -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/videoContainer"
         android:layout_width="match_parent"
@@ -138,9 +127,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ═══════════════════════════════════════════════════
-         BARRA INFERIOR — 8 botões de layout
-    ═══════════════════════════════════════════════════ -->
     <HorizontalScrollView
         android:id="@+id/layoutBar"
         android:layout_width="match_parent"
@@ -157,7 +143,6 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp">
 
-            <!-- Botão 1: Tela Única -->
             <LinearLayout
                 android:id="@+id/btnLayoutSingle"
                 style="@style/LayoutButton">
@@ -165,7 +150,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_single"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -175,7 +160,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 2: Divisão Horizontal -->
             <LinearLayout
                 android:id="@+id/btnLayoutHorizontal"
                 style="@style/LayoutButton">
@@ -183,7 +167,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_horizontal"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -193,7 +177,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 3: Divisão Vertical -->
             <LinearLayout
                 android:id="@+id/btnLayoutVertical"
                 style="@style/LayoutButton">
@@ -201,7 +184,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_vertical"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -211,7 +194,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 4: PiP -->
             <LinearLayout
                 android:id="@+id/btnLayoutPip"
                 style="@style/LayoutButton">
@@ -219,7 +201,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_pip"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,7 +211,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 5: Principal + 2 -->
             <LinearLayout
                 android:id="@+id/btnLayoutMainPlus2"
                 style="@style/LayoutButton">
@@ -237,7 +218,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_main_2"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,7 +228,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 6: Principal + 3 -->
             <LinearLayout
                 android:id="@+id/btnLayoutMainPlus3"
                 style="@style/LayoutButton">
@@ -255,7 +235,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_main_3"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,7 +245,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 7: Grade 2×2 -->
             <LinearLayout
                 android:id="@+id/btnLayoutGrid"
                 style="@style/LayoutButton">
@@ -273,7 +252,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_grid"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -283,7 +262,6 @@
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 8: Layout em T -->
             <LinearLayout
                 android:id="@+id/btnLayoutT"
                 style="@style/LayoutButton">
@@ -291,7 +269,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_t"
-                    android:imageTintList="@color/color_layout_button"
+                    app:tint="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
