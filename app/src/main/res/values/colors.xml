@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta principal — Material Design 3 Dark -->
+    <color name="primary">#BB86FC</color>
+    <color name="primary_variant">#3700B3</color>
+    <color name="secondary">#03DAC6</color>
+    <color name="secondary_variant">#018786</color>
+    <color name="error">#CF6679</color>
+
+    <!-- Superfícies -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_variant">#2C2C2C</color>
+
+    <!-- Conteúdo sobre superfícies -->
+    <color name="on_primary">#000000</color>
+    <color name="on_secondary">#000000</color>
+    <color name="on_background">#FFFFFF</color>
+    <color name="on_surface">#E0E0E0</color>
+    <color name="on_error">#000000</color>
+
+    <!-- Área de vídeo -->
+    <color name="video_background">#000000</color>
+    <color name="video_border">#333333</color>
+
+    <!-- Botão de layout selecionado -->
+    <color name="layout_btn_selected">#BB86FC</color>
+    <color name="layout_btn_normal">#9E9E9E</color>
+</resources>

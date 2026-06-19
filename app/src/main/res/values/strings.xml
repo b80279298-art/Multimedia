@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DualStreamPlayer Pro</string>
+
+    <!-- Botões da barra superior -->
+    <string name="btn_layout">Layout</string>
+    <string name="btn_fullscreen">Tela Cheia</string>
+    <string name="btn_settings">Configurações</string>
+    <string name="audio_label_default">Áudio P1</string>
+    <string name="audio_label">Áudio P%1$d</string>
+    <string name="audio_focus_switched">Stream %1$d como principal</string>
+
+    <!-- Modos de layout — nomes completos -->
+    <string name="layout_single">Tela Única</string>
+    <string name="layout_horizontal">Divisão Horizontal</string>
+    <string name="layout_vertical">Divisão Vertical</string>
+    <string name="layout_pip">Picture in Picture</string>
+    <string name="layout_main_plus_2">Principal + 2 Miniaturas</string>
+    <string name="layout_main_plus_3">Principal + 3 Miniaturas</string>
+    <string name="layout_grid_2x2">Grade 2×2</string>
+    <string name="layout_t">Layout em T</string>
+
+    <!-- Modos de layout — nomes curtos para a barra -->
+    <string name="layout_single_short">1</string>
+    <string name="layout_horizontal_short">H2</string>
+    <string name="layout_vertical_short">V2</string>
+    <string name="layout_pip_short">PiP</string>
+    <string name="layout_main_plus_2_short">1+2</string>
+    <string name="layout_main_plus_3_short">1+3</string>
+    <string name="layout_grid_short">2×2</string>
+    <string name="layout_t_short">T</string>
+
+    <!-- Diálogo de seleção de layout -->
+    <string name="dialog_select_layout">Selecionar Layout</string>
+
+    <!-- Configurações -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_apply">Aplicar</string>
+    <string name="settings_saved">Configurações salvas</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="settings_section_streams">URLs das Streams</string>
+    <string name="settings_stream_url_1">URL da Stream 1 (.m3u8)</string>
+    <string name="settings_stream_url_2">URL da Stream 2 (.m3u8)</string>
+    <string name="settings_stream_url_3">URL da Stream 3 (.m3u8)</string>
+    <string name="settings_stream_url_4">URL da Stream 4 (.m3u8)</string>
+
+    <string name="settings_section_volume">Volume Individual</string>
+    <string name="settings_volume_1">Volume — Player 1</string>
+    <string name="settings_volume_2">Volume — Player 2</string>
+    <string name="settings_volume_3">Volume — Player 3</string>
+    <string name="settings_volume_4">Volume — Player 4</string>
+
+    <string name="settings_section_audio">Configurações de Áudio</string>
+    <string name="settings_multi_audio">Múltiplos áudios simultâneos</string>
+    <string name="settings_primary_player">Player principal (recebe foco de áudio)</string>
+
+    <string name="settings_section_network">Rede e Buffer</string>
+    <string name="settings_auto_reconnect">Reconexão automática</string>
+    <string name="settings_buffer_ms">Buffer mínimo (ms)</string>
+    <string name="settings_timeout_ms">Timeout de rede (ms)</string>
+</resources>

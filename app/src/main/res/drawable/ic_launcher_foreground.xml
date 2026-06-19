@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Dois retângulos representando streams simultâneas -->
+  <path
+      android:fillColor="#BB86FC"
+      android:pathData="M20,25h30v28H20zM58,25h30v28H58zM20,61h68v22H20z"/>
+</vector>

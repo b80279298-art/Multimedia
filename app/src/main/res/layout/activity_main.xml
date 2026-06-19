@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml
+    Layout principal do DualStreamPlayer Pro.
+
+    Estrutura:
+    ┌─────────────────────────────────────────────┐
+    │  topBar  (Layout | Fullscreen | Áudio | Config) │
+    ├─────────────────────────────────────────────┤
+    │                                             │
+    │          videoContainer (ConstraintLayout)  │
+    │   playerView1, playerView2,                 │
+    │   playerView3, playerView4                  │
+    │                                             │
+    ├─────────────────────────────────────────────┤
+    │  layoutBar (8 botões de layout)             │
+    └─────────────────────────────────────────────┘
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <!-- ═══════════════════════════════════════════
+         BARRA SUPERIOR DE AÇÕES
+    ═══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:background="@color/surface"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:elevation="4dp">
+
+        <!-- Botão Layout -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLayout"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_layout"
+            app:icon="@drawable/ic_grid"
+            android:textColor="@color/on_surface"
+            app:iconTint="@color/on_surface" />
+
+        <!-- Botão Tela Cheia -->
+        <ImageButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_fullscreen"
+            android:contentDescription="@string/btn_fullscreen"
+            app:tint="@color/on_surface"
+            android:layout_marginStart="4dp" />
+
+        <!-- Botão Trocar Áudio (mostra qual player é primário) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSwitchAudio"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/audio_label_default"
+            app:icon="@drawable/ic_volume"
+            android:textColor="@color/primary"
+            app:iconTint="@color/primary"
+            android:layout_marginStart="4dp" />
+
+        <!-- Espaçador flexível -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Botão Configurações -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="@string/btn_settings"
+            app:tint="@color/on_surface" />
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════
+         ÁREA DE VÍDEO — ConstraintLayout com 4 PlayerViews
+         O LayoutManager reorganiza dinamicamente estes views.
+    ═══════════════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/video_background">
+
+        <!-- Player 1 — exibido em todos os modos -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:use_controller="false"
+            app:resize_mode="fit"
+            android:background="@color/video_background" />
+
+        <!-- Player 2 -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:use_controller="false"
+            app:resize_mode="fit"
+            android:background="@color/video_background" />
+
+        <!-- Player 3 -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:use_controller="false"
+            app:resize_mode="fit"
+            android:background="@color/video_background" />
+
+        <!-- Player 4 -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:use_controller="false"
+            app:resize_mode="fit"
+            android:background="@color/video_background" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ═══════════════════════════════════════════
+         BARRA INFERIOR — 8 botões de layout
+    ═══════════════════════════════════════════ -->
+    <HorizontalScrollView
+        android:id="@+id/layoutBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/surface"
+        android:fillViewport="true"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <!-- Botão 1: Tela Única -->
+            <LinearLayout
+                android:id="@+id/btnLayoutSingle"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_single">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_single"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_single_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 2: Divisão Horizontal -->
+            <LinearLayout
+                android:id="@+id/btnLayoutHorizontal"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_horizontal">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_horizontal"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_horizontal_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 3: Divisão Vertical -->
+            <LinearLayout
+                android:id="@+id/btnLayoutVertical"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_vertical"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_vertical_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 4: PiP -->
+            <LinearLayout
+                android:id="@+id/btnLayoutPip"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_pip">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_pip"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_pip_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 5: Principal + 2 -->
+            <LinearLayout
+                android:id="@+id/btnLayoutMainPlus2"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_main_plus_2">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_main_2"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_main_plus_2_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 6: Principal + 3 -->
+            <LinearLayout
+                android:id="@+id/btnLayoutMainPlus3"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_main_plus_3">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_main_3"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_main_plus_3_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 7: Grade 2x2 -->
+            <LinearLayout
+                android:id="@+id/btnLayoutGrid"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_grid_2x2">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_grid"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_grid_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+            <!-- Botão 8: Layout em T -->
+            <LinearLayout
+                android:id="@+id/btnLayoutT"
+                style="@style/LayoutButton"
+                android:contentDescription="@string/layout_t">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_layout_t"
+                    android:importantForAccessibility="no" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layout_t_short"
+                    style="@style/LayoutButtonLabel" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>
