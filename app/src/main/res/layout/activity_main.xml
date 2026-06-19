@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    activity_main.xml
-    Layout principal do DualStreamPlayer Pro.
-
-    Estrutura:
-    ┌─────────────────────────────────────────────┐
-    │  topBar  (Layout | Fullscreen | Áudio | Config) │
-    ├─────────────────────────────────────────────┤
-    │                                             │
-    │          videoContainer (ConstraintLayout)  │
-    │   playerView1, playerView2,                 │
-    │   playerView3, playerView4                  │
-    │                                             │
-    ├─────────────────────────────────────────────┤
-    │  layoutBar (8 botões de layout)             │
-    └─────────────────────────────────────────────┘
--->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -26,9 +9,9 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
          BARRA SUPERIOR DE AÇÕES
-    ═══════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════ -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -58,11 +41,11 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_fullscreen"
+            android:imageTintList="@color/on_surface"
             android:contentDescription="@string/btn_fullscreen"
-            app:tint="@color/on_surface"
             android:layout_marginStart="4dp" />
 
-        <!-- Botão Trocar Áudio (mostra qual player é primário) -->
+        <!-- Botão Trocar Áudio -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSwitchAudio"
             style="@style/Widget.Material3.Button.TextButton.Icon"
@@ -87,15 +70,14 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_settings"
-            android:contentDescription="@string/btn_settings"
-            app:tint="@color/on_surface" />
+            android:imageTintList="@color/on_surface"
+            android:contentDescription="@string/btn_settings" />
 
     </LinearLayout>
 
-    <!-- ═══════════════════════════════════════════
-         ÁREA DE VÍDEO — ConstraintLayout com 4 PlayerViews
-         O LayoutManager reorganiza dinamicamente estes views.
-    ═══════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════
+         ÁREA DE VÍDEO — 4 PlayerViews reorganizados pelo LayoutManager
+    ═══════════════════════════════════════════════════ -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/videoContainer"
         android:layout_width="match_parent"
@@ -103,7 +85,6 @@
         android:layout_weight="1"
         android:background="@color/video_background">
 
-        <!-- Player 1 — exibido em todos os modos -->
         <androidx.media3.ui.PlayerView
             android:id="@+id/playerView1"
             android:layout_width="0dp"
@@ -116,7 +97,6 @@
             app:resize_mode="fit"
             android:background="@color/video_background" />
 
-        <!-- Player 2 -->
         <androidx.media3.ui.PlayerView
             android:id="@+id/playerView2"
             android:layout_width="0dp"
@@ -130,7 +110,6 @@
             app:resize_mode="fit"
             android:background="@color/video_background" />
 
-        <!-- Player 3 -->
         <androidx.media3.ui.PlayerView
             android:id="@+id/playerView3"
             android:layout_width="0dp"
@@ -144,7 +123,6 @@
             app:resize_mode="fit"
             android:background="@color/video_background" />
 
-        <!-- Player 4 -->
         <androidx.media3.ui.PlayerView
             android:id="@+id/playerView4"
             android:layout_width="0dp"
@@ -160,9 +138,9 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
          BARRA INFERIOR — 8 botões de layout
-    ═══════════════════════════════════════════ -->
+    ═══════════════════════════════════════════════════ -->
     <HorizontalScrollView
         android:id="@+id/layoutBar"
         android:layout_width="match_parent"
@@ -182,136 +160,144 @@
             <!-- Botão 1: Tela Única -->
             <LinearLayout
                 android:id="@+id/btnLayoutSingle"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_single">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_single"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_single_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 2: Divisão Horizontal -->
             <LinearLayout
                 android:id="@+id/btnLayoutHorizontal"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_horizontal">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_horizontal"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_horizontal_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 3: Divisão Vertical -->
             <LinearLayout
                 android:id="@+id/btnLayoutVertical"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_vertical">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_vertical"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_vertical_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 4: PiP -->
             <LinearLayout
                 android:id="@+id/btnLayoutPip"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_pip">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_pip"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_pip_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 5: Principal + 2 -->
             <LinearLayout
                 android:id="@+id/btnLayoutMainPlus2"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_main_plus_2">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_main_2"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_main_plus_2_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 6: Principal + 3 -->
             <LinearLayout
                 android:id="@+id/btnLayoutMainPlus3"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_main_plus_3">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_main_3"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_main_plus_3_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
-            <!-- Botão 7: Grade 2x2 -->
+            <!-- Botão 7: Grade 2×2 -->
             <LinearLayout
                 android:id="@+id/btnLayoutGrid"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_grid_2x2">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_grid"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_grid_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
             <!-- Botão 8: Layout em T -->
             <LinearLayout
                 android:id="@+id/btnLayoutT"
-                style="@style/LayoutButton"
-                android:contentDescription="@string/layout_t">
+                style="@style/LayoutButton">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_layout_t"
+                    android:imageTintList="@color/color_layout_button"
                     android:importantForAccessibility="no" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/layout_t_short"
+                    android:textColor="@color/color_layout_button"
                     style="@style/LayoutButtonLabel" />
             </LinearLayout>
 
